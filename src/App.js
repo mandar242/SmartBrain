@@ -98,7 +98,24 @@ class App extends Component {
           Clarifai.FACE_DETECT_MODEL,
           this.state.input)
           //calculates inner function and displays facebox 
-        .then(response => this.displayFaceBox(this.calcuateFaceLocation(response))) //this will get the response which is the bounding box, but this response will be recieved what we console log last time 
+        .then(response => {
+          if(response){
+            fetch('http://localhost:3000/image',{
+              method: 'put',
+              headers : {'Content-Type':'application/json'},
+              body: JSON.stringify({
+                  id: this.state.id
+              })
+            })
+            .then(response =>response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user,{entries: count}))
+            })
+          
+          this.displayFaceBox(this.calcuateFaceLocation(response))
+          }
+        })
+         //this will get the response which is the bounding box, but this response will be recieved what we console log last time 
         .catch(err => console.log(err));
         // do something with response
         //console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
