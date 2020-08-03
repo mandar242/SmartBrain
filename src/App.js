@@ -27,7 +27,6 @@ const paticlesOptions = {
   }
 }
 
-
 class App extends Component {
 
   constructor(){
@@ -124,6 +123,7 @@ class App extends Component {
   onRouteChange = (route) =>{
     if (route === 'signout') {
       this.setState({isSignedIn: false})
+      
     }else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
@@ -141,6 +141,7 @@ class App extends Component {
                 //backgroundImage: `url(${logo})` 
               }}
             />
+            
       <Navigation isSignedIn= {this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
       { this.state.route === 'home'
           ? <div>
