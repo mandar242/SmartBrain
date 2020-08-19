@@ -3,7 +3,7 @@ The front-end part of smart-brain, a web app that detects human faces in a image
 
 - Front-end web development using [React.js](https://reactjs.org/), HTML, CSS.
 
-- The full version of the app is deployed [here](https://smartbrain-12.herokuapp.com/).
+- The full version of the app is deployed [here](https://smartbrain-mern.herokuapp.com/).
 
 - You can find the code for backend and server [here](https://github.com/sharvarikhedkar/SmartBrain-api).
 
